@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+
+  .constructor-grid-items {
+    flex-flow: row wrap;
+    flex: 0 0 200px;
+  }
+
+  .constructor-grid-item {
+    height: 132px;
+  }
+
+  .slider-container {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: scroll;
+    white-space:nowrap;
+
+    .slide {
+      display: inline-block;
+      width: 78px !important;
+    }
+  }
+
+}

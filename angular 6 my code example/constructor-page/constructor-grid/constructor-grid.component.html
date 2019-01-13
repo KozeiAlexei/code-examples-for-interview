@@ -1,0 +1,45 @@
+<!-- Desktop version. -->
+<div *ngIf="isMobile === false" class="constructor-grid-items">
+    <div *ngFor="let item of products" class="constructor-grid-item">
+        <div class="shop-item">
+            <div class="badge price">{{ item.Cost | russianCurrency }}</div>
+            <div class="badge price"><!-- List of tags should be here --></div>
+            <a class="cursor-pointer" (click)="onProductClick(item)">
+                <img class="img-responsive full-size-image" [src]="item.ImageMini | serverFileUrlCorrector">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile version. -->
+<div *ngIf="isMobile === true" class="constructor-grid-items">
+
+    <div class="slider-container" #productsContainer>
+        <div *ngFor="let item of products" class="constructor-grid-item slide">
+            <div class="shop-item">
+                <div class="badge price">{{ item.Cost | russianCurrency }}</div>
+                <div class="badge price"><!-- List of tags should be here --></div>
+                <a class="cursor-pointer" (click)="onProductClick(item)">
+                    <img class="img-responsive full-size-image" [src]="item.ImageMini | serverFileUrlCorrector" >
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group btn-group-justified">
+        <a class="btn btn-default paging-button" style="width: 50%"
+                (click)="scrollLeft()" >
+
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+
+        <a class="btn btn-default paging-button" style="width: 50%"
+                (click)="scrollRight()" >
+
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+
+</div>
+
+

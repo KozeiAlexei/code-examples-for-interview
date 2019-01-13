@@ -1,0 +1,129 @@
+<div class="without-header"></div>
+
+<div class="constructor-page">
+
+    <!-- Desktop layout -->
+    <section *ngIf="isMobile === false" class="section-small no-pad">
+
+        <!-- Constructor header. -->
+        <constructor-header (onColorSchemeChange)="onColorSchemeChange($event)"
+                            (onPhoneModelChange)="onPhoneModelChange($event)"
+                            (onBlankBatchChange)="onBlankBatchChange($event)"
+                            (onColorChange)="onColorChange($event)"
+                            [viewModel]="constructorHeaderVM"
+                            [blankFilter]="blankFilter"
+                            [pagingState]="pagingState">
+        </constructor-header>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="gap gap-small"></div>
+
+                <!-- Constructor grid. -->
+                <div class="col-md-9 col-sm-12 col-xs-12">
+
+                    <constructor-grid
+                            (onProductSelect)="updateConstructor($event)"
+
+                            [products]="products"
+                            [constructorParams]="constructorModelParams">
+                    </constructor-grid>
+                </div>
+
+                <!-- Constructor model. -->
+                <div class="col-md-3 col-sm-12 col-xs-12">
+
+                    <constructor-model
+                            [mode]="modeOfConstructorModel"
+                            [constructorParams]="constructorModelParams"
+                            (onAddToCart)="onAddToCart()">
+                    </constructor-model>
+                </div>
+            </div>
+
+        </div>
+
+        <br/>
+
+        <div class="constructor-footer-panel">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <constructor-paging [pagingState]="pagingState"
+                                            (onPageChange)="onPagingStateChange($event)"></constructor-paging>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile layout -->
+    <section *ngIf="isMobile === true" class="section-small no-pad">
+        <br>
+        <div class="container">
+
+            <div>
+                <div class="main-title">
+                    <h4>
+                        Создай свой чехол
+                    </h4>
+                </div>
+                <p>Прояви индивидуальность</p>
+            </div>
+
+            <div>
+                <label>Выберите модель и цвет телефона: </label>
+                <constructor-phone-selector-mobile
+                        (onPhoneModelChange)="onPhoneModelChange($event)"
+                        (onColorChange)="onColorChange($event)"
+                        [viewModel]="constructorHeaderVM"
+                        [blankFilter]="blankFilter"
+                        [pagingState]="pagingState">
+                </constructor-phone-selector-mobile>
+            </div>
+
+            <div class="margin-top-15px">
+                <label>Выберите заготовку: </label>
+                <constructor-blank-selector-mobile
+                        (onColorSchemeChange)="onColorSchemeChange($event)"
+                        (onBlankBatchChange)="onBlankBatchChange($event)"
+                        [viewModel]="constructorHeaderVM"
+                        [blankFilter]="blankFilter"
+                        [pagingState]="pagingState">
+                </constructor-blank-selector-mobile>
+            </div>
+
+            <!-- Constructor grid. -->
+            <div class="row margin-top-m10px">
+                <div class="gap gap-small"></div>
+                <div class="col-xs-12">
+
+                    <constructor-grid
+                            (onProductSelect)="updateConstructor($event)"
+
+                            [products]="products"
+                            [constructorParams]="constructorModelParams">
+                    </constructor-grid>
+                </div>
+            </div>
+
+            <!-- Constructor model. -->
+            <div id="modelContainer" class="row margin-top-15px">
+                <div class="col-xs-12">
+                    <label>Откорректируйте положение телефона: </label>
+                    <constructor-model
+                            class="mobile"
+                            [mode]="modeOfConstructorModel"
+                            [constructorParams]="constructorModelParams"
+                            (onAddToCart)="onAddToCart()">
+                    </constructor-model>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+    </section>
+</div>

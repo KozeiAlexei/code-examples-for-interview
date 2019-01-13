@@ -1,0 +1,51 @@
+<div class="constructor-model">
+    <div *ngIf="isComponentReady" class="custom-border top-side">
+        <div class="cut-borders">
+            <img #blankTemplate class="img-responsive blank-template"
+                 (load)="onBlankImageLoad()"
+                 [style.transform] = "templateRotationCss"
+                 [style.-webkit-transform] = "templateRotationCss"
+                 [src]="constructorParams.Blank.Image | serverFileUrlCorrector">
+
+            <img #phoneModelTemplate [style.opacity]="showOnlyCase === false ? 1: 0" class="img-responsive phone-template"
+                 (load)="onPhoneModelImageLoad()"
+                 [ngClass]="{ 'cursor-default': mode === ConstructorModelModeEnum.OnlyView }"
+                 [src]="constructorParams.PhoneModelColoredBlank.Template.Path | serverFileUrlCorrector"
+
+                 (mouseup)="template_OnMouseUp($event)"
+                 (mousemove)="templateOnMouseMove($event)"
+                 (mousedown)="template_OnMouseDown($event)"
+                 (mouseleave)="template_OnMouseUp($event)"
+
+                 (touchstart)="template_OnMouseDown($event)"
+                 (touchmove)="templateOnMouseMove($event)"
+                 (touchend)="template_OnMouseUp($event)">
+
+            <img #phoneModelTemplateWithBackground class="phone-template-with-background"
+                 (load)="onPhoneModelWithBackgroundImageLoad()"
+                 [hidden]="showOnlyCase === false"
+                 [src]="constructorParams.PhoneModelColoredBlank.TemplateWithBackground.Path | serverFileUrlCorrector">
+        </div>
+    </div>
+    <div *ngIf="areToolButtonsGroupVisible" class="btn-group btn-group-justified managment-panel custom-border">
+
+        <a class="btn btn-default btn-hyperlink rotate" (click)="RotateBlank()" [ngClass]="{'active': constructorParams.IsBlankRotated}">
+            <span class="glyphicon glyphicon-repeat"></span>
+        </a>
+
+        <a class="btn btn-default btn-hyperlink show-background" (click)="ShowOnlyCase()" [ngClass]="{'active': showOnlyCase}">
+            <span class="glyphicon glyphicon-camera"></span>
+        </a>
+
+        <a *ngIf="mode === ConstructorModelModeEnum.Full" class="btn btn-default btn-hyperlink manage-cart" (click)="addToCart()">
+            В корзину
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </a>
+
+        <a *ngIf="mode === ConstructorModelModeEnum.FullForEditingFromCart" class="btn btn-default btn-hyperlink manage-cart" (click)="saveChanges()">
+            Сохранить
+            <span class="glyphicon glyphicon-save"></span>
+        </a>
+    </div>
+</div>
+

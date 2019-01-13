@@ -1,0 +1,19 @@
+.constructor-grid-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.constructor-grid-item {
+  width: 15.5%; /*For stupid Safari.*/
+  flex: 0 2 15.5%;
+  height: 240px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+
+.full-size-image {
+  width: 100%;
+  height: 100%;
+}

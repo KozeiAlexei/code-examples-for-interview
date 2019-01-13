@@ -1,0 +1,15 @@
+@media (max-width: 767px) {
+
+  .constructor-model {
+
+    max-width: 100%;
+
+    img.blank-template {
+      width: 100%;
+      /*height: 550px;*/
+      height: auto;
+      transition: all .5s ease-in-out !important;
+    }
+  }
+
+}

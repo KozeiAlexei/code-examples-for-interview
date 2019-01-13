@@ -1,0 +1,52 @@
+1. Version with opacity
+
+SCSS:
+  div.managment-panel {
+    display: flex;
+
+    button {
+      border-radius: 0px !important;
+      background: black;
+      position: absolute;
+      z-index: 1;
+      opacity: 0.8;
+      bottom: 10px;
+      box-shadow: 0 0 3px 1px darkorange;
+    }
+
+    button.rotate {
+      left: 3%;
+      width: 19%;
+    }
+
+    button.show-background {
+      left: 24%;
+      width: 19%;
+    }
+
+    button.manage-cart {
+      left:45%;
+      width: 52%;
+    }
+  }
+
+Template:
+    <div *ngIf="areToolButtonsGroupVisible" class="managment-panel">
+
+        <button class="btn btn-default rotate" title="Развернуть" (click)="RotateBlank()" >
+            <span class="glyphicon glyphicon-repeat"></span>
+        </button>
+
+        <button class="btn btn-default show-background" title="Только чехол" (click)="ShowOnlyCase()">
+            <span class="glyphicon glyphicon-camera"></span>
+        </button>
+
+        <button class="btn btn-default manage-cart" *ngIf="isFullMode" (click)="addToCart()">
+            В корзину
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+
+        <button *ngIf="isEditingFromCartMode" (click)="saveChanges()" class="btn btn-dark manage-cart">
+            Сохранить
+        </button>
+    </div>

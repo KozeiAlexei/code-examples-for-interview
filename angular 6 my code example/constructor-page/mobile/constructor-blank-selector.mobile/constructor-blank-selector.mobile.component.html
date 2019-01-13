@@ -1,0 +1,20 @@
+<!-- Container for correct loading. -->
+<div class="constructor-blank-selector--mobile constructor-features-panel" *ngIf="viewModel">
+
+    <!-- Color scheme selector. -->
+    <filter-item #colorSchemeComboBox
+                 name="Гамма"
+                 [isItemForAllEnable]="true"
+                 [defaultItemId]="viewModel.DefaultColorSchemeId"
+                 [items]="viewModel.ColorSchemes"
+                 (onChange)="onColorSchemeChange.emit($event)"></filter-item>
+
+    <!-- Blank selector. -->
+    <filter-item #blankBatchComboBox
+                 name="Серия"
+                 [isItemForAllEnable]="true"
+                 [defaultItemId]="viewModel.DefaultBlankBatchId"
+                 [items]="viewModel.BlankBatches"
+                 (onChange)="onBlankBatchChange.emit($event)"></filter-item>
+
+</div>

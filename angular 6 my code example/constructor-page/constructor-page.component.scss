@@ -1,0 +1,49 @@
+.constructor-page {
+
+  .main-title {
+    display: block;
+    border-bottom: 3px solid #333;
+    width: 100%;
+
+    h4 {
+      margin: 0 0 10px !important;
+    }
+  }
+
+  .row-ext {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .row-ext > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paging-button {
+    width: 150px;
+  }
+
+  .toast-bottom-right-custom {
+    right: 225px;
+    bottom: 12px;
+  }
+
+  .add-to-cart-toast {
+
+  }
+
+  .constructor-features-panel {
+    padding: 15px 20px;
+    padding-bottom: 5px;
+    background: #fff;
+    color: #595959;
+    position: relative;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.11);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.11);
+  }
+}
+

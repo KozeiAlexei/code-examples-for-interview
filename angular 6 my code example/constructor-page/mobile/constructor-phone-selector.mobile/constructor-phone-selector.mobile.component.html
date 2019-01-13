@@ -1,0 +1,36 @@
+
+<!-- Container for correct loading. -->
+<div class="constructor-phone-selector--mobile constructor-features-panel" *ngIf="viewModel">
+    <div class="flex-box">
+
+        <!-- Phone selector. -->
+        <filter-item #phoneModelComboBox
+                     icon="fas fa-mobile constructor-header-icon-size"
+                     [defaultItemId]="viewModel.DefaultPhoneModelId"
+                     [items]="viewModel.PhoneModels"
+                     (onChange)="onPhoneModelChange.emit($event)">
+        </filter-item>
+
+        <!-- Color selector. -->
+        <filter-item #colorsComboBox
+                     icon="fas fa-palette constructor-header-icon-size"
+                     additionalClasses="last-filter-item color-combobox"
+                     [defaultItemId]="viewModel.DefaultColorId"
+                     [items]="viewModel.Colors"
+                     (onChange)="onColorChange.emit($event)"
+
+                     [isCustomItemTemplate]="true">
+
+            <!-- Item template. -->
+            <ng-template let-item="item">
+                <div class="color-combobox-item"
+                     [style.background]="item.Data.Color.Code"
+                     [title]="item.Data.Color.Name">
+                </div>
+            </ng-template>
+
+        </filter-item>
+    </div>
+</div>
+
+

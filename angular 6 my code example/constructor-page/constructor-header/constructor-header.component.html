@@ -1,0 +1,49 @@
+<div class="category-filters" *ngIf="viewModel">
+    <div class="container clearfix">
+
+        <div>
+            <filter-item #colorSchemeComboBox
+                         name="Цветовое решение"
+                         [isItemForAllEnable]="true"
+                         [defaultItemId]="viewModel.DefaultColorSchemeId"
+                         [items]="viewModel.ColorSchemes"
+                         (onChange)="onColorSchemeChange.emit($event)"></filter-item>
+
+            <filter-item #blankBatchComboBox
+                         name="Серия"
+                         [isItemForAllEnable]="true"
+                         [defaultItemId]="viewModel.DefaultBlankBatchId"
+                         [items]="viewModel.BlankBatches"
+                         (onChange)="onBlankBatchChange.emit($event)"></filter-item>
+        </div>
+
+        <div class="pull-right header-right-offset">
+                <filter-item #phoneModelComboBox
+                             icon="fas fa-mobile constructor-header-icon-size"
+                             [defaultItemId]="viewModel.DefaultPhoneModelId"
+                             [items]="viewModel.PhoneModels"
+                             (onChange)="onPhoneModelChange.emit($event)"></filter-item>
+
+                <filter-item #colorsComboBox
+                             icon="fas fa-palette constructor-header-icon-size"
+                             additionalClasses="last-filter-item color-combobox"
+                             [defaultItemId]="viewModel.DefaultColorId"
+                             [items]="viewModel.Colors"
+                             (onChange)="onColorChange.emit($event)"
+
+                             [isCustomItemTemplate]="true">
+
+                    <!-- Item template. -->
+                    <ng-template let-item="item">
+                        <div class="color-combobox-item"
+                            [style.background]="item.Data.Color.Code"
+                            [title]="item.Data.Color.Name">
+                        </div>
+                    </ng-template>
+
+                </filter-item>
+        </div>
+
+    </div>
+</div>
+

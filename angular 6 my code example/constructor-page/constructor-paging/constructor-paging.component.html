@@ -1,0 +1,27 @@
+<!-- Containter div for correct component rendering. -->
+<div id="constructorPagingComponent_Container" *ngIf="state && frame">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="btn-group" role="group" >
+                <button type="button" class="btn btn-default paging-button"
+                        (click)="prevPage()" [disabled]="state.CurrentNumber <= 1">
+
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </button>
+
+                <button type="button" class="btn btn-default paging-button"
+                        (click)="nextPage()" [disabled]="state.CurrentNumber >= state.AllPagesCount" >
+
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <p class="category-filters-title pull-right">
+                Показаны <b>{{ frame.From }}–{{ frame.To }}</b> из <b>{{ state.AllElementCount }}</b> заготовок
+            </p>
+        </div>
+    </div>
+</div>

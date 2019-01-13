@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4B39681-C974-41AB-91A1-D8114E480F13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfinitySynerge.MobileForHero.BusinessServices</RootNamespace>
+    <AssemblyName>InfiniteSynergy.MobileForHero.BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuttingEdge.Conditions, Version=1.2.0.11174, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Billing\DTO\TinkoffPayment_InitRequest.cs" />
+    <Compile Include="Billing\DTO\TinkoffPayment_InitResponse.cs" />
+    <Compile Include="Billing\TinkoffBillingService.cs" />
+    <Compile Include="BusinessProcess\CaseRenderingService.cs" />
+    <Compile Include="BusinessProcess\OrderService.cs" />
+    <Compile Include="BusinessProcess\OrderStatusesService.cs" />
+    <Compile Include="BusinessServicesDependencyResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\External\InfiniteSynergy.Utility\InfiniteSynergy.Utility.csproj">
+      <Project>{c1a172ea-76ee-423e-91a7-0e955ef926ca}</Project>
+      <Name>InfiniteSynergy.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.BusinessServices.ActionParams\InfiniteSynergy.MobileForHero.BusinessServices.ActionParams.csproj">
+      <Project>{805c9362-b423-4168-8d6b-7e0e978c7697}</Project>
+      <Name>InfiniteSynergy.MobileForHero.BusinessServices.ActionParams</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.BusinessServices.Common\InfiniteSynergy.MobileForHero.BusinessServices.Common.csproj">
+      <Project>{5A89D37D-0D20-4EE2-8284-05553C1AFB20}</Project>
+      <Name>InfiniteSynergy.MobileForHero.BusinessServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.BusinessServices.Contracts\InfiniteSynergy.MobileForHero.BusinessServices.Contracts.csproj">
+      <Project>{B055190E-C11F-45A7-860E-203DF827F47F}</Project>
+      <Name>InfiniteSynergy.MobileForHero.BusinessServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.BusinessServices.Models\InfiniteSynergy.MobileForHero.BusinessServices.Models.csproj">
+      <Project>{A108643C-D0BE-42AF-854D-3D9FB6AFBB85}</Project>
+      <Name>InfiniteSynergy.MobileForHero.BusinessServices.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.Common\InfiniteSynergy.MobileForHero.Common.csproj">
+      <Project>{61973E01-EB9D-42DB-9737-9738EA909EFF}</Project>
+      <Name>InfiniteSynergy.MobileForHero.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.DataAccess.Contracts\InfiniteSynergy.MobileForHero.DataAccess.Contracts.csproj">
+      <Project>{E05AF85E-209F-4EA5-8334-2C64C3CCB54F}</Project>
+      <Name>InfiniteSynergy.MobileForHero.DataAccess.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.DataAccess.ModelContracts\InfiniteSynergy.MobileForHero.DataAccess.ModelContracts.csproj">
+      <Project>{55305E50-BFCC-409E-A294-B3314FB9A6A6}</Project>
+      <Name>InfiniteSynergy.MobileForHero.DataAccess.ModelContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.DataAccess.Models\InfiniteSynergy.MobileForHero.DataAccess.Models.csproj">
+      <Project>{BD132E3C-7F8F-47F9-B24B-F338496D0B99}</Project>
+      <Name>InfiniteSynergy.MobileForHero.DataAccess.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfiniteSynergy.MobileForHero.DataAccess\InfiniteSynergy.MobileForHero.DataAccess.csproj">
+      <Project>{E6440A50-8C67-46DC-B409-2F14117AD636}</Project>
+      <Name>InfiniteSynergy.MobileForHero.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
